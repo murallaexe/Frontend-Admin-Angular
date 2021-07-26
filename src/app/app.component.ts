@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Frontend-Admin-Angular';
+
+  //rv = region Visible
+  rv:any="dashboard";
+
+  verEmpresas(e:any){this.rv = e;}
+
+  verComidas(e:any){this.rv = e;}
+
+  verProductos(e:any){this.rv = e;}
+
+  verMotoristas(e:any){this.rv = e;}  
+
+  verOrdenes(e:any){this.rv = e;}
+
 }

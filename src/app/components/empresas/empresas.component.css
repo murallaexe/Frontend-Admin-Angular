@@ -1,0 +1,27 @@
+.title{
+    color: #FB1D5A;
+    font-weight: 900;
+    font-size: 24px;
+    text-align: center;
+}
+
+.cards{
+    padding: 20px;
+    padding-top: 50px;
+}
+
+.title-card{
+    font-size: 14px;
+}
+
+.bc-r{background-color: #FB1D5A;}
+.bc-2{background-color: mediumturquoise;}
+.bc-3{background-color: tomato;}
+.bc-4{background-color: rebeccapurple;}
+.bc-5{background-color: palevioletred;}
+.bc-6{background-color: violet;}
+
+
+
+
+
