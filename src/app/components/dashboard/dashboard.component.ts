@@ -31,4 +31,8 @@ export class DashboardComponent implements OnInit {
     this.rv = 'ordenes';
     this.onVerOrdenes.emit(this.rv);
   }
+
+  verUSuariosAdmin(){
+    console.log('ver usuarios admin');
+  }
 }
