@@ -35,4 +35,8 @@ export class DashboardComponent implements OnInit {
   verUSuariosAdmin(){
     console.log('ver usuarios admin');
   }
+
+  verFormularios(){
+    console.log('ver formularios');
+  }
 }
