@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-motoristas',
@@ -6,10 +6,15 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./motoristas.component.css']
 })
 export class MotoristasComponent implements OnInit {
+  @Output() onVerDetalleMotorista = new EventEmitter();
+
   faPlus =  faPlus;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  verDetalleMotorista(){
+    this.onVerDetalleMotorista.emit('detalleMotorista');
+  }
 }

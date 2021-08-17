@@ -1,0 +1,15 @@
+.bd{
+	border: solid #fb1d5a 1px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #e6c4cd2e;
+}
+
+.titles{
+	color: #fb1d5a;
+}
+
+.btn-tomar-pedido{
+    background-color: #fb1d5a;
+    color: white;
+}

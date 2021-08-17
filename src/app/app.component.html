@@ -18,10 +18,36 @@
 ></app-productos>
 <app-motoristas
     [ngClass]="{'visible':rv == 'motoristas', 'noVisible':rv!= 'motoristas'}"
+    (onVerDetalleMotorista)="verDetalleMotorista($event)"
 ></app-motoristas>
 
 <app-ordenes
     [ngClass]="{'visible':rv == 'ordenes', 'noVisible':rv!= 'ordenes'}"
+    (onverOrdenesTomadas)="verOrdenesTomadas($event)"
+    (onverOrdenesEntregadas)="verOrdenesEntregadas($event)"
+    (onverOrdenesDisponibles)="verOrdenesDisponibles($event)"
 ></app-ordenes>
-<app-footernav></app-footernav>
+
+<app-detalle-orden
+    [ngClass]="{'visible':rv == 'detalleOrden', 'noVisible':rv!= 'detalleOrden'}"
+    (onVerOrdenes)="verOrdenes($event)"
+></app-detalle-orden>
+<app-detalle-motorista
+    [ngClass]="{'visible':rv == 'detalleMotorista', 'noVisible':rv!= 'detalleMotorista'}"
+></app-detalle-motorista>
+<app-orden-tomada 
+    [ngClass]="{'visible':rv == 'ordenesTomadas', 'noVisible':rv!= 'ordenesTomadas'}"
+    (onVerDetalleOrden)="verDetalleOrden($event)"
+></app-orden-tomada>
+<app-orden-entregada 
+    [ngClass]="{'visible':rv == 'ordenesEntregadas', 'noVisible':rv!= 'ordenesEntregadas'}"
+    (onVerDetalleOrden)="verDetalleOrden($event)"
+></app-orden-entregada>
+<app-orden-disponible 
+    [ngClass]="{'visible':rv == 'ordenesDisponibles', 'noVisible':rv!= 'ordenesDisponibles'}"
+    (onVerDetalleOrden)="verDetalleOrden($event)"
+></app-orden-disponible>
+<app-footernav
+    (onVerDashboard)="verDashboard($event)"
+></app-footernav>
 <router-outlet></router-outlet>

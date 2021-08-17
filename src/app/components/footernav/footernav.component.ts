@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faHome, faShoppingCart, faClipboard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,6 +8,7 @@ import { faHome, faShoppingCart, faClipboard } from '@fortawesome/free-solid-svg
 })
 export class FooternavComponent implements OnInit {
 
+  @Output() onVerDashboard = new EventEmitter(); 
   faHome = faHome;
   faShopping = faShoppingCart;
   faClipboard = faClipboard;
@@ -15,6 +16,10 @@ export class FooternavComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  verDashboard(){
+    this.onVerDashboard.emit('dashboard');
   }
 
 }

@@ -13,6 +13,11 @@ import { ComidasComponent } from './components/comidas/comidas.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { MotoristasComponent } from './components/motoristas/motoristas.component';
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
+import { DetalleOrdenComponent } from './components/detalle-orden/detalle-orden.component';
+import { DetalleMotoristaComponent } from './components/detalle-motorista/detalle-motorista.component';
+import { OrdenTomadaComponent } from './components/orden-tomada/orden-tomada.component';
+import { OrdenEntregadaComponent } from './components/orden-entregada/orden-entregada.component';
+import { OrdenDisponibleComponent } from './components/orden-disponible/orden-disponible.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { OrdenesComponent } from './components/ordenes/ordenes.component';
     ComidasComponent,
     ProductosComponent,
     MotoristasComponent,
-    OrdenesComponent
+    OrdenesComponent,
+    DetalleOrdenComponent,
+    DetalleMotoristaComponent,
+    OrdenTomadaComponent,
+    OrdenEntregadaComponent,
+    OrdenDisponibleComponent
   ],
   imports: [
     BrowserModule,
