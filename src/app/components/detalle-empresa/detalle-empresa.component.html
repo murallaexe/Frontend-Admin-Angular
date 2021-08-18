@@ -1,0 +1,75 @@
+<div class="container pl-4 pr-5">
+    <div class="row">
+        <div class="col-12 pb-5">
+            <img class="w-100" [src]="'assets/'+detalleEmpresa.imagenPortada" alt="">
+            <div class="img-flotante"><img class="imgRedonda" [src]="'assets/'+detalleEmpresa.imagenComercio" alt=""></div>
+        </div>
+        <div id="div-fantasma" class="col-12 pt-4 ta-c"><h5 class="title pt-4">{{detalleEmpresa.nombreEmpresa}}</h5></div>
+        <div class="col-12 pt-4">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">ID Empresa</th>
+                        <td>{{detalleEmpresa._id}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Categoria</th>
+                        <td>{{detalleEmpresa.tipoEmpresa}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sede Pais</th>
+                        <td>{{detalleEmpresa.sedePais}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Lema</th>
+                        <td>{{detalleEmpresa.LemaEmpresa}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div><h5 class="title pt-4">Sucursales</h5></div>
+            <table class="table">
+                <tbody>
+                    <tr *ngFor = "let sucursal of detalleEmpresa.sucursales">
+                        <th scope="row">{{sucursal.nombreSucursal}}</th>
+                        <td>{{sucursal.Direccion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-4">
+            <h5 class="title">Lista Productos</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of detalleEmpresa.productos">
+                        <th scope="row">{{producto.nombreProducto}}</th>
+                        <td>Lps.{{producto.precio}}</td>
+                        <td> <button type="button" class="btn btn-ver">Ver</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 ta-c">
+            <button type="button" class="btn btn-primary w-100"> Editar </button>
+        </div>
+        <div class="col-sm-12 col-md-4 col-xl-4 ">
+            <br><br><br><br>
+        </div>
+    </div>
+</div>

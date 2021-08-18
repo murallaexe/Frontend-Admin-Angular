@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4">
+            <h5 class="title">Categorias</h5>
+            <hr class="mb-0">
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let categoria of categorias" class="col-6">
+            <div [ngStyle]="{'background-color': categoria.bgColor}" class="card text-white cards bc-r mt-4" (click)="verEmpresas(categoria)">
+                <img [src]="'assets/img/categorias/'+categoria.imagen" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h5 class="card-title title-card"><strong class="text-uppercase">{{categoria.nombreCategoria}}</strong></h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <br><br><br><br>
+        </div>
+    </div>
+</div>

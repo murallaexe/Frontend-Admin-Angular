@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { faHome, faShoppingCart, faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faShoppingCart, faClipboard, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-footernav',
@@ -9,8 +9,11 @@ import { faHome, faShoppingCart, faClipboard } from '@fortawesome/free-solid-svg
 export class FooternavComponent implements OnInit {
 
   @Output() onVerDashboard = new EventEmitter(); 
+  @Output() onVerAtras = new EventEmitter(); 
+  
+  faCaretLeft = faCaretLeft;
   faHome = faHome;
-  faShopping = faShoppingCart;
+  // faShopping = faShoppingCart;
   faClipboard = faClipboard;
   
   constructor() { }
@@ -20,6 +23,10 @@ export class FooternavComponent implements OnInit {
 
   verDashboard(){
     this.onVerDashboard.emit('dashboard');
+  }
+
+  verAtras(){
+    this.onVerAtras.emit();
   }
 
 }

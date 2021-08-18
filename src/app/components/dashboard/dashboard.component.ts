@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @Output() onVerEmpresas = new EventEmitter();
+  @Output() onVerCategoriasEmpresas = new EventEmitter();
   @Output() onVerMotoristas = new EventEmitter();
   @Output() onVerOrdenes = new EventEmitter();
   
@@ -17,9 +17,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  verEmpresas(){
-    this.rv = 'empresas';
-    this.onVerEmpresas.emit(this.rv);
+  verCategoriasEmpresas(){
+    this.rv = 'categoriasEmpresas';
+    this.onVerCategoriasEmpresas.emit(this.rv);
   }
 
   verMotorista(){

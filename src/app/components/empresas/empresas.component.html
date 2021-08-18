@@ -1,60 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-12 mt-4">
-            <h5 class="title">Title</h5>
+            <h5 class="title">Comercios</h5>
             <hr class="mb-0">
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
-            <div class="card text-white cards bc-r mt-4" (click)="verComidas()">
-                <img src="../../../assets/img/burger.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title title-card"><strong>COMIDA</strong></h5>
+        <div class="col-sm-12 col-md-4 col-xl-4 ">
+            <div *ngFor="let comercio of comercios" class="card mb-3 bc-card " (click)="verDetalleEmpresa(comercio)">
+                <img [src]="'assets/'+comercio.imagenComercio" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title mb-0">{{comercio.nombreEmpresa}}</h5>
+                    <p class="card-text"><small class="text-muted">{{comercio.tipoEmpresa}} || {{comercio.sedePais}}</small></p>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="card text-white cards bc-2 mt-4 ">
-                <img src="../../../assets/img/desktop.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title title-card"><strong>ELECTRONICOS</strong></h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card text-white cards bc-3 mt-4 ">
-                <img src="../../../assets/img/shoppermen.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title title-card"><strong>LIFESTYLES</strong></h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card text-white cards bc-4 mt-4 ">
-                <img src="../../../assets/img/grocery.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title title-card"><strong>SUPERMERCADO</strong></h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card text-white cards bc-5 mt-4 ">
-                <img src="../../../assets/img/coffee-cup.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title title-card"><strong>CAFE</strong></h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card text-white cards bc-6 mt-4 ">
-                <img src="../../../assets/img/giftbox.png" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <h5 class="card-title title-card"><strong>REGALOS</strong></h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
+        
+        <div class="col-sm-12 col-md-4 col-xl-4 ">
             <br><br><br><br>
         </div>
     </div>
