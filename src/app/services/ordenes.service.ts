@@ -14,4 +14,15 @@ export class OrdenesService {
   getOrdenes():Observable<any>{
     return this.httpClient.get(`http://localhost:8888/ordenes`);
   }
+
+  //primera que se ejecuta
+  cambiosEnOrdenes(idOrden:any,informacion:any):Observable<any>{
+    return this.httpClient.put(`http://localhost:8888/ordenes/${idOrden}`,{
+      estadoOrden:informacion.estadoOrden,
+      nombreMotorista:informacion.nombreMotorista,
+      Idmotorista:informacion.Idmotorista,
+      placaVehiculo:informacion.placaVehiculo,
+    });
+  }
+  
 }

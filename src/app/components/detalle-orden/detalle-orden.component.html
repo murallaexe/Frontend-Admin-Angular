@@ -1,5 +1,8 @@
 <div class="container">
     <div class="row">
+        <div *ngIf="detalleOrden.estadoOrden == 'origen'" class="col-12 mt-4 mb-4">
+            <button (click)="verModalMotorista(modalAsignarMotorista)" type="button" class="btn btn-tomar-pedido ml-2">Asignar Motorista</button>
+        </div>
         <div class="col-12 mt-4">
             <div class="bd">
                 <div class="row">
@@ -105,11 +108,26 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="detalleOrden.estadoOrden == 'origen'" class="col-12 mt-4 mb-4">
-            <button type="button" class="btn btn-tomar-pedido ml-2">Asignar Motorista</button>
-        </div>
         <div class="col-sm-12 col-md-4 col-xl-4 ">
-            <br><br><br><br>
+            <br><br><br><br><br><br><br>
         </div>
     </div>
 </div>
+
+
+<ng-template #modalAsignarMotorista>
+    <div class="modal-header pb-0">
+        <h2 class="titles"><strong>Asignar Motorista</strong></h2>
+    </div>
+    <div class="modal-body">
+        <label for="">Seleccione un motorista</label>
+        <select [(ngModel)]="motoristaSeleccionado" class="form-control" name="motorista" id="motorista">
+            <option value="">Seleccione una opcion</option>
+            <option   *ngFor="let motorista of motoristas" [ngValue]="motorista" >{{motorista.nombreUsuario}}</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-tomar-pedido" (click)="asignarMotorista()">Asignar</button>
+        <button type="button" class="btn btn-secondary" (click)="cerraModal()">Cancelar</button>
+    </div>
+</ng-template>
