@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "formulario-unah": {
+      "hosting": {
+        "Frontend-Admin-Angular": [
+          "formulario-unah"
+        ]
+      }
+    }
+  }
+}
