@@ -2,45 +2,43 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { OrdenesService } from 'src/app/services/ordenes.service';
 
 @Component({
-  selector: 'app-orden-tomada',
-  templateUrl: './orden-tomada.component.html',
-  styleUrls: ['./orden-tomada.component.css']
+  selector: 'app-orden-camino',
+  templateUrl: './orden-camino.component.html',
+  styleUrls: ['./orden-camino.component.css']
 })
-export class OrdenTomadaComponent implements OnInit {
+export class OrdenCaminoComponent implements OnInit {
 
   @Output() onVerDetalleOrden = new EventEmitter();
 
-  ordenesTomadas:any=[];
+  ordenesCamino:any=[];
   aux:any=[];
+
   constructor(
     private ordenesServices: OrdenesService
   ) { }
 
   ngOnInit(): void {
-    this.renderizarOrdenesTomadas();
+    this.renderizarOrdenesCamino();
   }
 
-  renderizarOrdenesTomadas(){
-    this.ordenesTomadas = [];
+  renderizarOrdenesCamino(){
+    this.ordenesCamino = [];
     this.ordenesServices.getOrdenes()
     .subscribe(
       result => {
         this.aux = result;
         this.aux.forEach((orden:any) => {
-          if (orden.estadoOrden == "tomada") {
-            this.ordenesTomadas.push(orden);
+          if (orden.estadoOrden == "en camino") {
+            this.ordenesCamino.push(orden);
           }
         });
-        console.log("ordenes tomadas:", this.ordenesTomadas)
+        console.log("ordenes en Camino:", this.ordenesCamino)
       }
     )
   }
 
-  verOrdenTomada(idOrden:any){
-    
-  }
-
   verDetalleOrden(orden:any){
+    console.log(orden);
     let d = {
       region: 'detalleOrden',
       infoOrden: orden

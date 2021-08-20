@@ -8,23 +8,35 @@
                         <tbody>
                             <tr>
                                 <th scope="row"><a class="titles">Orden: </a></th>
-                                <td>611936b36d7b3f549e1e37f6</td>
+                                <td>{{detalleOrden._id}}</td>
                             </tr>
                             <tr>
                                 <th scope="row"><a class="titles">Origen: </a></th>
-                                <td>Pizza Hut Aeropuerto</td>
+                                <td>{{detalleOrden.empresa}}</td>
                             </tr>
                             <tr>
-                                <th scope="row"><a class="titles">Estado Pedido: </a></th>
-                                <td>En origen</td>
+                                <th scope="row"><a class="titles">Estado Orden: </a></th>
+                                <td>{{detalleOrden.estadoOrden}}</td>
                             </tr>
                             <tr>
                                 <th scope="row"><a class="titles"><a class="titles">Descripcion Pedido</a></a></th>
-                                <td>Pedido de Combo #4, pizza gigante con alitas</td>
+                                <td>{{detalleOrden.producto}} | Precio: {{detalleOrden.precioProducto}} | Cantidad: {{detalleOrden.cantidadProducto}}  </td>
                             </tr>
                             <tr>
-                                <th scope="row"><a class="titles"><a class="titles">Fecha:</a></a></th>
-                                <td>12/12/12 12:52:23 pm</td>
+                                <th scope="row"><a class="titles"><a class="titles">Tipo Entrega</a></a></th>
+                                <td>{{detalleOrden.tipoEntrega}} </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a class="titles"><a class="titles">Tiempo Entrega</a></a></th>
+                                <td>{{detalleOrden.tiempoEntrega}} </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a class="titles"><a class="titles">Descripcion Pedido</a></a></th>
+                                <td>{{detalleOrden.descripcionPedido}} </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a class="titles"><a class="titles">Motorista Asignado</a></a></th>
+                                <td>{{detalleOrden.nombreMotorista}}</td>
                             </tr>
                             
                         </tbody>
@@ -41,15 +53,15 @@
                         <tbody>
                             <tr>
                                 <th scope="row"><a class="titles">Nombre</a></th>
-                                <td>Victor Amaya</td>
+                                <td>{{detalleOrden.nombreCliente}}</td>
                             </tr>
                             <tr>
                                 <th scope="row"><a class="titles">Telefono</a></th>
-                                <td>9999-9999</td>
+                                <td>{{detalleOrden.telefonCliente}}</td>
                             </tr>
                             <tr>
                                 <th scope="row"><a class="titles">Direccion Envio </a></th>
-                                <td>Residencial Santa Cruza, Bloque BB-1 Casa #1</td>
+                                <td>{{detalleOrden.direccioncliente}}</td>
                             </tr>              
                         </tbody>
                     </table>
@@ -93,8 +105,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 mt-4 mb-4">
-            <button type="button" class="btn btn-tomar-pedido" (click)="verOrdenes()"> Atras</button>
+        <div *ngIf="detalleOrden.estadoOrden == 'origen'" class="col-12 mt-4 mb-4">
             <button type="button" class="btn btn-tomar-pedido ml-2">Asignar Motorista</button>
         </div>
         <div class="col-sm-12 col-md-4 col-xl-4 ">

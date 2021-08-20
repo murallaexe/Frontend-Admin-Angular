@@ -29,7 +29,8 @@ export class CategoriasComponent implements OnInit {
     this.rv="empresas";
     let d = {
       region: this.rv,
-      empresasComercios: categoria.comercios 
+      empresasComercios: categoria.comercios,
+      categoriaCompleta: categoria 
     }
     this.onVerEmpresas.emit(d);
   }

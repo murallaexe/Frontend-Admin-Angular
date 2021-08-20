@@ -1,14 +1,19 @@
 <br>
 <div class="container pl-4 pr-5">
     <div class="row">
+        <div class="col-12">
+            <h5 class="titles p-2"><strong style="font-size: xx-large">{{detalleMotorista.nombreUsuario}}</strong></h5>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-4">
-            <img class="img-profile" src="../../../assets/img/roshi.jpg" alt="">
+            <img class="img-profile" [src]="'assets/'+detalleMotorista.UrlFoto" alt="">
         </div>
         <div class="col-8">
             <div class="row">
-                <div class="col-12 ta-c"><h5 class="titles p-2"><strong>Maestro Roshi</strong></h5></div>
+                <div class="col-12 ta-c"></div>
                 <div class="col-6 ta-c">
-                    <h6><strong>25</strong></h6>
+                    <h6><strong *ngIf="detalleMotorista.ordenes">{{detalleMotorista.ordenes.length}}</strong></h6>
                     <p class="text-muted">Ordenes</p>
                 </div>
                 <div class="col-6">
@@ -21,42 +26,41 @@
                 <tbody>
                     <tr>
                         <th scope="row">ID Usuario</th>
-                        <td>611936b36d7b3f549e1e37f6</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Fecha Nacimiento</th>
-                        <td>12 Diciembre 1999</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Telefono</th>
-                        <td>9999-9999</td>
+                        <td>{{detalleMotorista._id}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Correo</th>
-                        <td>fuerajoh@gmail.com</td>
+                        <td>{{detalleMotorista.correoUsuario}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Telefono</th>
+                        <td>{{detalleMotorista.telefono}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Descripcion</th>
+                        <td>{{detalleMotorista.descripcion}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Tipo Usuario</th>
-                        <td>Motorista</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tipo Vehiculo</th>
-                        <td>Motocicleta</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Placa Vehiculo</th>
-                        <td>F1BBA75</td>
+                        <td>{{detalleMotorista.tipoUsuario}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Direccion</th>
-                        <td>Tegucigalpa, Honduras</td>
+                        <td>{{detalleMotorista.pais}}, {{detalleMotorista.ciudad}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Estado Solicitud</th>
+                        <td>
+                            <button *ngIf="!detalleMotorista.estado" type="button" class="btn btn-warning">Pendiente</button>
+                            <button *ngIf="detalleMotorista.estado" type="button" class="btn btn-estado-a">Aprobado</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
 
         </div>
         <div class="col-12 ta-c">
-            <button type="button" class="btn btn-primary w-100"> Editar </button>
+            <button *ngIf="!detalleMotorista.estado" type="button" class="btn btn-success w-100" (click)="aprobarMotorista(detalleMotorista._id)"> Aprobar </button>
         </div>
     </div>
 </div>

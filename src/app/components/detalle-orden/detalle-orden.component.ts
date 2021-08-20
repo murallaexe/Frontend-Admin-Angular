@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OrdenesService } from 'src/app/services/ordenes.service';
 
 @Component({
   selector: 'app-detalle-orden',
@@ -8,7 +9,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class DetalleOrdenComponent implements OnInit {
 
   @Output() onVerOrdenes = new EventEmitter();
-  constructor() { }
+
+  detalleOrden :any = [];
+  aux: any = []
+
+
+  constructor(
+    private ordenesServices: OrdenesService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -17,4 +25,18 @@ export class DetalleOrdenComponent implements OnInit {
     this.onVerOrdenes.emit('ordenes');
   }
 
+  setDetalleorden(orden:any){
+    this.ordenesServices.getOrdenes()
+    .subscribe(
+      result => {
+        this.aux = result;
+        this.aux.forEach((ordenaux:any) => {
+          if (ordenaux._id == orden._id) {
+            console.log(ordenaux);
+            this.detalleOrden = ordenaux;
+          }
+        });
+      }
+    )
+  }
 }

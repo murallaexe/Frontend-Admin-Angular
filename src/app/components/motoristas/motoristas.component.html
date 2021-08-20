@@ -13,36 +13,19 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Detalle</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Maestro Roshi</td>
-                        <td><button type="button" class="btn btn-estado-a">Aprobado</button></td>
-                        <td> <button (click)="verDetalleMotorista()" type="button" class="btn btn-ver">Ver</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Lacho</td>
-                        <td><button type="button" class="btn btn-estado-p">Pendiente</button></td>
-                        <td> <button type="button" class="btn btn-ver">Ver</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>El Chino</td>
-                        <td><button type="button" class="btn btn-estado-a">Aprobado</button></td>
-                        <td> <button (click)="verDetalleMotorista()" type="button" class="btn btn-ver">Ver</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mono</td>
-                        <td><button type="button" class="btn btn-estado-a">Aprobado</button></td>
-                        <td> <button (click)="verDetalleMotorista()" type="button" class="btn btn-ver">Ver</button></td>
+                    <tr *ngFor="let mot of motoristas">
+                        <th scope="row">{{mot.nombreUsuario}}</th>
+                        <td>
+                            <button *ngIf="!mot.estado" type="button" class="btn btn-warning">Pendiente</button>
+                            <button *ngIf="mot.estado" type="button" class="btn btn-estado-a">Aprobado</button>
+                        </td>
+                        <td> <button (click)="verDetalleMotorista(mot)" type="button" class="btn btn-ver">Ver</button></td>
                     </tr>
                 </tbody>
             </table>

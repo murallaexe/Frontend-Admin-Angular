@@ -6,39 +6,68 @@
         </div>
         <div id="div-fantasma" class="col-12 pt-4 ta-c"><h5 class="title pt-4">{{detalleEmpresa.nombreEmpresa}}</h5></div>
         <div class="col-12 pt-4">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th scope="row">ID Empresa</th>
-                        <td>{{detalleEmpresa._id}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Categoria</th>
-                        <td>{{detalleEmpresa.tipoEmpresa}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Sede Pais</th>
-                        <td>{{detalleEmpresa.sedePais}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Lema</th>
-                        <td>{{detalleEmpresa.LemaEmpresa}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <form action="" [formGroup]="formDetalleEmpresa">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">ID Empresa</th>
+                            <td class="">{{detalleEmpresa._id}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Categoria</th>
+                            <td><input type="text" class="form-control" formControlName="tipoEmpresa" name="tipoEmpresa" id="tipoEmpresa" [value]="detalleEmpresa.tipoEmpresa"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sede Pais</th>
+                            <td><input type="text" class="form-control" formControlName="sedePais" name="sedePais" id="sedePais" [value]="detalleEmpresa.sedePais"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lema</th>
+                            <td><input type="text" name="" id="" class="form-control" formControlName="LemaEmpresa" name="LemaEmpresa" id="LemaEmpresa" [value]="detalleEmpresa.LemaEmpresa"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Img Logo</th>
+                            <td><input type="text" name="ImgLogo" id="" class="form-control" formControlName="imagenLogo" name="imagenLogo" id="imagenLogo"  [value]="detalleEmpresa.imagenLogo"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Img Comercio</th>
+                            <td><input type="text" name="ImgComercio" id="" class="form-control" formControlName="imagenComercio" name="imagenComercio" id="imagenComercio" [value]="detalleEmpresa.imagenComercio"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Img Portada</th>
+                            <td><input type="text" name="ImgPortada" id="" class="form-control" formControlName="imagenPortada" name="imagenPortada" id="imagenPortada" [value]="detalleEmpresa.imagenPortada"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Img Banner</th>
+                            <td><input type="text" name="ImgBanner" id="" class="form-control" formControlName="imagenBanner" name="imagenBanner" id="imagenBanner" [value]="detalleEmpresa.imagenBanner"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <div><h5 class="title pt-4">Sucursales</h5></div>
-            <table class="table">
-                <tbody>
-                    <tr *ngFor = "let sucursal of detalleEmpresa.sucursales">
-                        <th scope="row">{{sucursal.nombreSucursal}}</th>
-                        <td>{{sucursal.Direccion}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <form action="" [formGroup]="formSucursales">
+                <div><h5 class="title pt-4">Sucursales</h5></div>
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor = "let sucursal of detalleEmpresa.sucursales">
+                            <th scope="row">
+                                <strong>Nombre Sucursal</strong>
+                                <div class="fantastama pb-2" ></div>
+                                {{sucursal.nombreSucursal}}
+                            </th>
+                            <td>
+                                <strong>Direccion:</strong>
+                                <div class="fantasma pb-2"></div>
+                                {{sucursal.direccion}}
+                            </td>
+                            <td><button type="button" class="btn btn-primary">edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
     <div class="row">
@@ -66,7 +95,8 @@
             </table>
         </div>
         <div class="col-12 ta-c">
-            <button type="button" class="btn btn-primary w-100"> Editar </button>
+            <button *ngIf="!btnGuardarCambios" type="button" class="btn btn-primary w-100" (click)="habilitarFormulario()"> Editar </button>
+            <button *ngIf="btnGuardarCambios" type="button"  class="btn btn-primary w-100" (click)="guardarCambios(detalleEmpresa)"> Guardar </button>
         </div>
         <div class="col-sm-12 col-md-4 col-xl-4 ">
             <br><br><br><br>

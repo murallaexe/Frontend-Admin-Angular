@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4">
+            <h5 class="title">Usuarios</h5>
+            <button type="button" class="btn btn-new"><strong class="plus">
+                <!-- <fa-icon [icon]="faPlus"></fa-icon> -->
+            </strong></button>
+            <hr class="mb-0">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuariosSinMotoristas">
+                        <th scope="row">{{usuario.nombreUsuario}}</th>
+                        <td>{{usuario.tipoUsuario}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-4 col-xl-4 ">
+            <br><br><br><br>
+        </div>
+    </div>
+</div>

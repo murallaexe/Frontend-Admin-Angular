@@ -9,6 +9,7 @@ export class DashboardComponent implements OnInit {
   @Output() onVerCategoriasEmpresas = new EventEmitter();
   @Output() onVerMotoristas = new EventEmitter();
   @Output() onVerOrdenes = new EventEmitter();
+  @Output() onVerUsuarios = new EventEmitter();
   
   //rv = region Visible
   rv:any = '';
@@ -32,8 +33,9 @@ export class DashboardComponent implements OnInit {
     this.onVerOrdenes.emit(this.rv);
   }
 
-  verUSuariosAdmin(){
-    console.log('ver usuarios admin');
+  verUsuarios(){
+    this.rv = 'usuarios';
+    this.onVerUsuarios.emit(this.rv);
   }
 
   verFormularios(){

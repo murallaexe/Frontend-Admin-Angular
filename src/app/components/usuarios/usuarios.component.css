@@ -1,0 +1,36 @@
+.title{
+    color: #FB1D5A;
+    font-weight: 900;
+    font-size: 24px;
+    text-align: center;
+}
+
+.btn-ver{
+    background-color: #FB1D5A;
+    color: white;
+}
+
+.btn-new{
+    background-color: #00cd3b;
+    color: white;
+    position: fixed;
+    bottom: 80px;
+    right: 25px;
+    border-radius: 30px;
+}
+
+.plus{
+    font-size:larger;
+    font-weight: bold;
+
+}
+
+.btn-estado-a{
+    background-color: #09b93c;
+    color: white;
+}
+
+.btn-estado-p{
+    background-color: #ff7e04;
+    color: white;
+}

@@ -14,6 +14,16 @@
     font-size: 14px;
 }
 
+.img-icon{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center{
+    text-align: center;
+}
+
 .bc-r{background-color: #FB1D5A;}
 .bc-2{background-color: mediumturquoise;}
 .bc-3{background-color: tomato;}

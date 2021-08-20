@@ -4,6 +4,7 @@
     (onVerCategoriasEmpresas) = "verCategoriasEmpresas($event)" 
     (onVerMotoristas) = "verMotoristas($event)" 
     (onVerOrdenes)="verOrdenes($event)"
+    (onVerUsuarios)="verUsuarios($event)"
     [ngClass]="{'visible':rv == 'dashboard', 'noVisible':rv!= 'dashboard'}"
 ></app-dashboard>
 
@@ -24,45 +25,63 @@
 ></app-productos>
 
 <app-motoristas
+    #motoristas
     [ngClass]="{'visible':rv == 'motoristas', 'noVisible':rv!= 'motoristas'}"
     (onVerDetalleMotorista)="verDetalleMotorista($event)"
 ></app-motoristas>
 
 <app-ordenes
+    #ordenes
     [ngClass]="{'visible':rv == 'ordenes', 'noVisible':rv!= 'ordenes'}"
     (onverOrdenesTomadas)="verOrdenesTomadas($event)"
     (onverOrdenesEntregadas)="verOrdenesEntregadas($event)"
     (onverOrdenesDisponibles)="verOrdenesDisponibles($event)"
+    (onverOrdenesCamino)="verOrdenesCamino($event)"
 ></app-ordenes>
 
 <app-detalle-orden
+    #detalleOrden
     [ngClass]="{'visible':rv == 'detalleOrden', 'noVisible':rv!= 'detalleOrden'}"
     (onVerOrdenes)="verOrdenes($event)"
 ></app-detalle-orden>
 
 <app-detalle-motorista
+    #detalleMotorista
     [ngClass]="{'visible':rv == 'detalleMotorista', 'noVisible':rv!= 'detalleMotorista'}"
 ></app-detalle-motorista>
 
 <app-orden-tomada 
+    #ordenTomada
     [ngClass]="{'visible':rv == 'ordenesTomadas', 'noVisible':rv!= 'ordenesTomadas'}"
     (onVerDetalleOrden)="verDetalleOrden($event)"
 ></app-orden-tomada>
 
 <app-orden-entregada 
+    #ordenEntregada
     [ngClass]="{'visible':rv == 'ordenesEntregadas', 'noVisible':rv!= 'ordenesEntregadas'}"
     (onVerDetalleOrden)="verDetalleOrden($event)"
 ></app-orden-entregada>
 
 <app-orden-disponible 
+    #ordenDisponible
     [ngClass]="{'visible':rv == 'ordenesDisponibles', 'noVisible':rv!= 'ordenesDisponibles'}"
     (onVerDetalleOrden)="verDetalleOrden($event)"
 ></app-orden-disponible>
+
+<app-orden-camino
+    #ordenCamino
+    (onVerDetalleOrden)="verDetalleOrden($event)"
+    [ngClass]="{'visible':rv == 'ordenesCamino', 'noVisible':rv!= 'ordenesCamino'}"
+></app-orden-camino>
 
 <app-detalle-empresa
     #detalleEmpresa
     [ngClass]="{'visible':rv == 'detalleEmpresa', 'noVisible':rv!= 'detalleEmpresa'}"
 ></app-detalle-empresa>
+
+<app-usuarios
+    [ngClass]="{'visible':rv == 'usuarios', 'noVisible':rv!= 'usuarios'}"
+></app-usuarios>
 
 <app-footernav
     (onVerDashboard)="verDashboard($event)"

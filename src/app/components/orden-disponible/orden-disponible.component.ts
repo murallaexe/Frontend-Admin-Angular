@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OrdenesService } from 'src/app/services/ordenes.service';
 
 @Component({
   selector: 'app-orden-disponible',
@@ -8,18 +9,42 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class OrdenDisponibleComponent implements OnInit {
   @Output() onVerDetalleOrden = new EventEmitter();
 
-
-  constructor() { }
+  ordenesDisponibles:any=[];
+  aux:any=[];
+  constructor(
+    private ordenesServices: OrdenesService
+  ) { }
 
   ngOnInit(): void {
+    this.renderizarOrdenesDisponibles();
   }
 
   verOrdenDisponible(idOrden:any){
     
   }
 
-  verDetalleOrden(Orden:any){
-    console.log(Orden);
-    this.onVerDetalleOrden.emit('detalleOrden');
+  renderizarOrdenesDisponibles(){
+    this.ordenesDisponibles = [];
+    this.ordenesServices.getOrdenes()
+    .subscribe(
+      result => {
+        this.aux = result;
+        this.aux.forEach((orden:any) => {
+          if (orden.estadoOrden == "origen") {
+            this.ordenesDisponibles.push(orden);
+          }
+        });
+        console.log("ordenes Disponibles:", this.ordenesDisponibles)
+      }
+    )
+  }
+
+  verDetalleOrden(orden:any){
+    console.log(orden);
+    let d = {
+      region: 'detalleOrden',
+      infoOrden: orden
+    }
+    this.onVerDetalleOrden.emit(d);
   }
 } 

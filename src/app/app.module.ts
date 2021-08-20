@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -20,6 +21,12 @@ import { OrdenEntregadaComponent } from './components/orden-entregada/orden-entr
 import { OrdenDisponibleComponent } from './components/orden-disponible/orden-disponible.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { DetalleEmpresaComponent } from './components/detalle-empresa/detalle-empresa.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrdenCaminoComponent } from './components/orden-camino/orden-camino.component';
+
+
 
 @NgModule({
   declarations: [
@@ -37,14 +44,19 @@ import { DetalleEmpresaComponent } from './components/detalle-empresa/detalle-em
     OrdenEntregadaComponent,
     OrdenDisponibleComponent,
     CategoriasComponent,
-    DetalleEmpresaComponent
+    DetalleEmpresaComponent,
+    UsuariosComponent,
+    OrdenCaminoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
