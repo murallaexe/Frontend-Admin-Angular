@@ -1,8 +1,7 @@
 <div class="container">
     <div class="row">
         <div  class="col-12 mt-4 mb-4">
-            <!-- *ngIf="detalleOrden.estadoOrden == 'origen'" -->
-            <button (click)="verModalMotorista(modalAsignarMotorista)" type="button" class="btn btn-tomar-pedido ml-2">Asignar Motorista</button>
+            <button *ngIf="detalleOrden.estadoOrden == 'origen'" (click)="verModalMotorista(modalAsignarMotorista)" type="button" class="btn btn-tomar-pedido ml-2">Asignar Motorista</button>
         </div>
         <div class="col-12 mt-4">
             <div class="bd">
@@ -16,7 +15,8 @@
                             </tr>
                             <tr>
                                 <th scope="row"><a class="titles">Origen: </a></th>
-                                <td>{{detalleOrden.empresa}}</td>
+                                <td [ngClass]="{'noVer':detalleOrden.empresa !=''}" *ngIf="detalleOrden.empresa !='' ">{{detalleOrden.empresa}}</td>
+                                <td *ngIf="detalleOrden.producto === 'Pedido especial'">Varios</td>
                             </tr>
                             <tr>
                                 <th scope="row"><a class="titles">Estado Orden: </a></th>
@@ -42,7 +42,19 @@
                                 <th scope="row"><a class="titles"><a class="titles">Motorista Asignado</a></a></th>
                                 <td>{{detalleOrden.nombreMotorista}}</td>
                             </tr>
-                            
+                            <tr>
+                                <th scope="row"><a class="titles"><a class="titles">Descripcion Productos Pedidos</a></a></th>
+                                <table>
+                                    <tbody>
+                                        <tr *ngFor="let productoPedido of detalleOrden.productos">
+                                            <th>{{productoPedido.producto}}</th>
+                                            <td>{{productoPedido.empresa}}</td>
+                                            <td>{{productoPedido.cantidadProducto}}</td>
+                                            <td>{{productoPedido.precioProducto}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -81,27 +93,27 @@
                             <tbody>
                                 <tr>
                                     <th scope="row"><a class="titles">Metodo de Pago</a></th>
-                                    <td>Visa 4352*********</td>
+                                    <td>{{detalleOrden.metodoPago}}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row"><a class="titles">Sub Total</a></th>
-                                    <td>L191.30</td>
+                                    <td>{{detalleOrden.precioProducto}}</td>
                                 </tr> 
                                 <tr>
                                     <th scope="row"><a class="titles">15% ISV</a></th>
-                                    <td>L28.70</td>
+                                    <td>{{impuesto}}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row"><a class="titles">Comision VejaApp</a></th>
-                                    <td>L5.20</td>
+                                    <td>{{detalleOrden.comision}}</td>
                                 </tr>  
                                 <tr>
                                     <th scope="row"><a class="titles">Comision Motorista</a></th>
-                                    <td>L30</td>
+                                    <td>{{detalleOrden.comision}}</td>
                                 </tr>  
                                 <tr>
                                     <th scope="row"><a class="titles">Total</a></th>
-                                    <td>L255.20</td>
+                                    <td>{{total}}</td>
                                 </tr>             
                             </tbody>
                         </table>

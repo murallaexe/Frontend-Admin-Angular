@@ -19,6 +19,8 @@ export class DetalleOrdenComponent implements OnInit {
   motoristas:any=[];
   motoristaSeleccionado:any=[];
   idOrdenCollectionUsuario:any="";
+  impuesto:any="";
+  total:any="";
 
   constructor(
     private ordenesServices: OrdenesService,
@@ -43,6 +45,8 @@ export class DetalleOrdenComponent implements OnInit {
           if (ordenaux._id == orden._id) {
             console.log('detalle orden:',ordenaux);
             this.detalleOrden = ordenaux;
+            this.calcularImpuesto();
+            this.calcularTotal();
           }
         });
         this.getIdOrdenCollectionUsuario(this.detalleOrden.idOrden)
@@ -58,7 +62,7 @@ export class DetalleOrdenComponent implements OnInit {
         this.aux3.forEach((usuario:any) => {
           if (this.detalleOrden.idCliente == usuario._id) {
             usuario.listaPedidos.forEach((pedido:any) => {
-              console.log('pedido donde voy a traer el id:',pedido);
+              // console.log('pedido donde voy a traer el id:',pedido);
               this.idOrdenCollectionUsuario = pedido._id;
             });
           }
@@ -88,7 +92,7 @@ export class DetalleOrdenComponent implements OnInit {
         });
       }
     )
-    console.log('select motoristas', this.motoristas);
+    // console.log('select motoristas', this.motoristas);
   }
 
   cerraModal(){
@@ -168,5 +172,14 @@ export class DetalleOrdenComponent implements OnInit {
       }
     )
     console.log('insertar a :'+this.motoristaSeleccionado);
+  }
+
+
+  calcularImpuesto(){
+    this.impuesto = this.detalleOrden.precioProducto*0.15;
+  }
+
+  calcularTotal(){
+    this.total =  parseInt( this.impuesto)+ parseInt( this.detalleOrden.precioProducto)+parseInt(this.detalleOrden.comision)+parseInt(this.detalleOrden.comision);
   }
 }
