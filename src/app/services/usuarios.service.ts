@@ -12,12 +12,12 @@ export class UsuariosService {
   ) { }
 
   getUsuarios():Observable<any>{
-    return this.httpClient.get('http://localhost:8888/usuarios');
+    return this.httpClient.get('vejadelivery.herokuapp.com/usuarios');
   }
 
   setUsuarioMotorista(idUsuario:any):Observable<any>{
     return this.httpClient.post(
-      `http://localhost:8888/usuarios/${idUsuario}/admin/motorista`,
+      `vejadelivery.herokuapp.com/usuarios/${idUsuario}/admin/motorista`,
       {
         placaVehiculo:""
       }

@@ -12,17 +12,17 @@ export class OrdenesService {
   ) { }
 
   getOrdenes():Observable<any>{
-    return this.httpClient.get(`http://localhost:8888/ordenes`);
+    return this.httpClient.get(`vejadelivery.herokuapp.com/ordenes`);
   }
 
   //primera que se ejecuta
   cambiosEnOrdenes(idOrden:any,informacion:any):Observable<any>{
-    return this.httpClient.put(`http://localhost:8888/ordenes/${idOrden}`,{
+    return this.httpClient.put(`vejadelivery.herokuapp.com/ordenes/${idOrden}`,{
       estadoOrden:informacion.estadoOrden,
       nombreMotorista:informacion.nombreMotorista,
       Idmotorista:informacion.Idmotorista,
       placaVehiculo:informacion.placaVehiculo,
     });
   }
-  
+
 }
