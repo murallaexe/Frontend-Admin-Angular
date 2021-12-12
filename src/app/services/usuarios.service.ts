@@ -12,12 +12,12 @@ export class UsuariosService {
   ) { }
 
   getUsuarios():Observable<any>{
-    return this.httpClient.get('vejadelivery.herokuapp.com/usuarios');
+    return this.httpClient.get('https://vejadelivery.herokuapp.com/usuarios');
   }
 
   setUsuarioMotorista(idUsuario:any):Observable<any>{
     return this.httpClient.post(
-      `vejadelivery.herokuapp.com/usuarios/${idUsuario}/admin/motorista`,
+      `https://vejadelivery.herokuapp.com/usuarios/${idUsuario}/admin/motorista`,
       {
         placaVehiculo:""
       }
@@ -26,7 +26,7 @@ export class UsuariosService {
 
   //segunda que se ejecuta
   guardarOrdenesMotorista(idUsuario:any,informacion:any):Observable<any>{
-    return this.httpClient.post(`http://localhost:8888/usuarios/${idUsuario}/motorista/ordenes`,{
+    return this.httpClient.post(`https://vejadelivery.herokuapp.com/usuarios/${idUsuario}/motorista/ordenes`,{
       idDatabaseOrden:informacion.idDatabaseOrden,
       idCliente:informacion.idCliente,
       idOrden:informacion.idOrden,
@@ -48,7 +48,7 @@ export class UsuariosService {
 
   ///esta es la tercera que se ejecuta
   cambiarEstadoCliente(idUsuario:any,idOrden:any,informacion:any):Observable<any>{
-    return this.httpClient.put(`http://localhost:8888/usuarios/${idUsuario}/CambiosEstadoOrdenes/${idOrden}`,{
+    return this.httpClient.put(`https://vejadelivery.herokuapp.com/usuarios/${idUsuario}/CambiosEstadoOrdenes/${idOrden}`,{
       estadoOrden:informacion.estadoOrden,
       precio:informacion.precio
     })
